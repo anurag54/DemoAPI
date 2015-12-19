@@ -1,0 +1,710 @@
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/dash"
+    android:weightSum="1"
+    android:paddingLeft="0dp"
+    android:paddingTop="0dp"
+    android:paddingRight="0dp"
+    android:paddingBottom="0dp" >
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="DUKE"
+            android:id="@+id/text_duke"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:visibility="visible"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="#13346B" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:id="@+id/text_green_strip"
+            android:background="#6bde18"
+            android:layout_below="@+id/text_duke" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:id="@+id/image_back_arrow"
+            android:layout_alignParentTop="true"
+            android:src="@mipmap/back_arrow"
+            android:layout_alignParentStart="true"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:id="@+id/image_hamburger"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:src="@mipmap/hamburger"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp" />
+
+
+    </RelativeLayout>
+
+
+
+    //Layout for Dashboard space
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/dash"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:weightSum="1"
+        android:id="@+id/dash1">
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/image_horse1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:src="@mipmap/horse" />
+
+        <ImageView
+            android:layout_width="3dp"
+            android:layout_height="50dp"
+            android:id="@+id/image_strip"
+            android:layout_toEndOf="@+id/image_horse1"
+            android:layout_alignParentTop="true"
+            android:src="@mipmap/strip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Dashboard"
+            android:id="@+id/text_dashboard"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/image_locations"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:src="@mipmap/locations"
+            android:paddingRight="5dp"
+            android:clickable="true" />
+
+        <ImageView
+            android:layout_width="3dp"
+            android:layout_height="50dp"
+            android:id="@+id/image_strip1"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/image_locations"
+            android:src="@mipmap/strip" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/image_notifications"
+            android:layout_alignTop="@+id/image_locations"
+            android:src="@mipmap/notifications"
+            android:layout_toStartOf="@+id/image_strip1"
+            android:paddingRight="10dp" />
+
+        <ImageView
+            android:layout_width="3dp"
+            android:layout_height="50dp"
+            android:id="@+id/image_strip2"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/image_notifications"
+            android:src="@mipmap/strip" />
+
+    </RelativeLayout>
+
+
+    //Layout for EDIScores and questionmark
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_below="@id/dash1"
+        android:gravity="start"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/back1"
+        android:id="@+id/dash2">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text=" EDI™ Score"
+            android:id="@+id/text_edi"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:textColor="#808080"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/image_questionmark"
+            android:layout_toEndOf="@+id/text_edi"
+            android:src="@mipmap/questionmark"
+            android:layout_alignTop="@+id/text_edi" />
+
+    </RelativeLayout>
+
+
+    //Layout from RPM to Behaviors
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--<RelativeLayout-->
+                <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:layout_marginRight="5dp"-->
+                <!--android:background="@drawable/back"-->
+                <!--android:visibility="gone"-->
+                <!--android:id="@+id/rl">-->
+
+                <!--<fragment xmlns:android="http://schemas.android.com/apk/res/android"-->
+                    <!--xmlns:tools="http://schemas.android.com/tools"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="125dp"-->
+                    <!--android:id="@+id/map" tools:context=".MainActivity"-->
+                    <!--android:name="com.google.android.gms.maps.SupportMapFragment"-->
+                    <!--tools:layout="@layout/temp" />-->
+
+            <!--</RelativeLayout>-->
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:id="@+id/dash3">
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:id="@+id/image_rpm"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/rpm" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/image_edi_score"
+                    android:layout_alignParentEnd="true"
+                    android:src="@mipmap/ediscore"
+                    android:layout_marginRight="5dp" />
+
+            </RelativeLayout>
+
+
+            //Layout for BIOMETRICS section
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="vertical"
+                android:layout_below="@id/dash3"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:id="@+id/dash4">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="BIOMETRICS"
+                    android:id="@+id/text_biometrics"
+                    android:layout_weight="0.00"
+                    android:textColor="#1d1d26"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:background="@drawable/back1"/>
+
+
+                //Layout for Heart Rate
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:id="@+id/dash5">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/image_heartrate"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:src="@mipmap/heartrate"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="5dp" />
+
+
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="207dp"
+                        android:layout_height="6dp"
+                        android:id="@+id/image_progressBar"
+                        android:background="#FF0000"
+                        android:visibility="visible"
+                        android:layout_alignBottom="@+id/image_heartrate"
+                        android:layout_toEndOf="@+id/image_heartrate"
+                        android:layout_marginLeft="10dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Heart Rate"
+                        android:id="@+id/text_heart_rate"
+                        android:textSize="15sp"
+                        android:textColor="#1d1d26"
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignTop="@+id/image_heartrate"
+                        android:layout_alignStart="@+id/image_progressBar" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text=""
+                        android:id="@+id/text_heart_score"
+                        android:textColor="#222222"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="40dp"
+                        android:layout_above="@+id/text_heart_unit"
+                        android:layout_alignParentEnd="true"
+                        android:paddingRight="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="(beats/min)"
+                        android:id="@+id/text_heart_unit"
+                        android:layout_below="@+id/image_progressBar"
+                        android:layout_alignEnd="@+id/text_heart_score"
+                        android:textColor="#222222"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                //Layout for Respiratory Rate
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:id="@+id/dash6"
+                    android:layout_below="@id/dash5">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/image_respiratoryrate"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:src="@mipmap/respiratoryrate"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="5dp" />
+
+
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="207dp"
+                        android:layout_height="6dp"
+                        android:id="@+id/image_progressBar1"
+                        android:background="#FF0000"
+                        android:visibility="visible"
+                        android:layout_alignBottom="@+id/image_respiratoryrate"
+                        android:layout_toEndOf="@+id/image_respiratoryrate"
+                        android:layout_marginLeft="10dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Respiratory Rate"
+                        android:id="@+id/text_respiratory_rate"
+                        android:textSize="15sp"
+                        android:textColor="#1d1d26"
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignTop="@+id/image_respiratoryrate"
+                        android:layout_alignStart="@+id/image_progressBar1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="28"
+                        android:id="@+id/text_respiratory_score"
+                        android:textColor="#222222"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="40dp"
+                        android:layout_above="@+id/text_respiratory_unit"
+                        android:layout_alignParentEnd="true"
+                        android:paddingRight="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="(breaths/min)"
+                        android:id="@+id/text_respiratory_unit"
+                        android:layout_below="@+id/image_progressBar1"
+                        android:layout_alignEnd="@+id/text_respiratory_score"
+                        android:textColor="#222222"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            //Layout for BEHAVIORS section
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:orientation="vertical"
+                android:layout_below="@id/dash4"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:id="@+id/dash7">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="BEHAVIORS"
+                    android:id="@+id/text_behaviors"
+                    android:layout_weight="0.00"
+                    android:textColor="#1d1d26"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:background="@drawable/back1"/>
+
+
+                //Layout for Rise-Falls Rate
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/dash8">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/image_risefalls"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:src="@mipmap/risefalls"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="5dp" />
+
+
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="207dp"
+                        android:layout_height="6dp"
+                        android:id="@+id/image_progressBar3"
+                        android:background="#6bde18"
+                        android:visibility="visible"
+                        android:layout_alignBottom="@+id/image_risefalls"
+                        android:layout_toEndOf="@+id/image_risefalls"
+                        android:layout_marginLeft="10dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Rise-Falls"
+                        android:id="@+id/text_rise_fall"
+                        android:textSize="15sp"
+                        android:textColor="#1d1d26"
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignTop="@+id/image_risefalls"
+                        android:layout_alignStart="@+id/image_progressBar3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="8.1"
+                        android:id="@+id/text_risefall_score"
+                        android:textColor="#222222"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="40dp"
+                        android:layout_above="@+id/text_risefall_unit"
+                        android:layout_alignParentEnd="true"
+                        android:paddingRight="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="(times/day)"
+                        android:id="@+id/text_risefall_unit"
+                        android:layout_below="@+id/image_progressBar3"
+                        android:layout_alignEnd="@+id/text_risefall_score"
+                        android:textColor="#222222"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                //Layout for Lying Down Rate
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/dash9"
+                    android:layout_below="@id/dash8">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/image_lyingdown"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:src="@mipmap/lyingdown"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="5dp" />
+
+
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="207dp"
+                        android:layout_height="6dp"
+                        android:id="@+id/image_progressBar4"
+                        android:background="#ffea00"
+                        android:visibility="visible"
+                        android:layout_alignBottom="@+id/image_lyingdown"
+                        android:layout_toEndOf="@+id/image_lyingdown"
+                        android:layout_marginLeft="10dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Lying Down"
+                        android:id="@+id/text_lying_down"
+                        android:textSize="15sp"
+                        android:textColor="#1d1d26"
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignTop="@+id/image_lyingdown"
+                        android:layout_alignStart="@+id/image_progressBar4" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="3.4"
+                        android:id="@+id/text_lying_down_score"
+                        android:textColor="#222222"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="40dp"
+                        android:layout_above="@+id/text_lying_down_unit"
+                        android:layout_alignParentEnd="true"
+                        android:paddingRight="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="(hours/day)"
+                        android:id="@+id/text_lying_down_unit"
+                        android:layout_below="@+id/image_progressBar4"
+                        android:layout_alignEnd="@+id/text_lying_down_score"
+                        android:textColor="#222222"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+                //Layout for Rolls Rate
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/dash10"
+                    android:layout_below="@id/dash9">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/image_rolls"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:src="@mipmap/rolls"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="5dp" />
+
+
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="207dp"
+                        android:layout_height="6dp"
+                        android:id="@+id/image_progressBar5"
+                        android:background="#ffea00"
+                        android:visibility="visible"
+                        android:layout_alignBottom="@+id/image_rolls"
+                        android:layout_toEndOf="@+id/image_rolls"
+                        android:layout_marginLeft="10dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="Rolls"
+                        android:id="@+id/text_rolls"
+                        android:textSize="15sp"
+                        android:textColor="#1d1d26"
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignTop="@+id/image_rolls"
+                        android:layout_alignStart="@+id/image_progressBar5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="5.6"
+                        android:id="@+id/text_rolls_score"
+                        android:textColor="#222222"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="40dp"
+                        android:layout_above="@+id/text_rolls_unit"
+                        android:layout_alignParentEnd="true"
+                        android:paddingRight="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="(times/day)"
+                        android:id="@+id/text_rolls_unit"
+                        android:layout_below="@+id/image_progressBar5"
+                        android:layout_alignEnd="@+id/text_rolls_score"
+                        android:textColor="#222222"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/dash11"
+        android:layout_marginTop="20dp" >
+
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="Dashboard"
+            android:id="@+id/button_dashboard"
+            android:background="#13346B"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="EDI"
+            android:id="@+id/button_edi"
+            android:background="#13346B"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/button_dashboard" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="Biometrics"
+            android:id="@+id/button_biometrics"
+            android:background="#13346B"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/button_edi" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="102dp"
+            android:layout_height="match_parent"
+            android:text="Behaviors"
+            android:id="@+id/button_behaviors"
+            android:background="#13346B"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/button_biometrics" />
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+</LinearLayout>

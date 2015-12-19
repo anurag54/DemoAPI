@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/popup"
+    android:layout_height="wrap_content"
+    android:background="@drawable/popupbg"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:visibility="visible">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" EDI™ Score"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:textSize="15sp"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:text="The Equine Distress Index™ (EDI) is a 10-point scale of distress in a horse. Your horse’s EDI score is a measure of their relative distress at any point, and is continuously being calculated using real-time data on your horse’s biometrics, behaviors, and risk factors."
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView1"
+        android:textColor="#808080" />
+
+    <Button
+        android:id="@+id/close"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="OK"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:id="@+id/textView25"
+        android:layout_alignParentEnd="true"
+        android:background="#808080"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>
