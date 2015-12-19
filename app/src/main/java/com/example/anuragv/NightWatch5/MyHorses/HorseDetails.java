@@ -160,7 +160,7 @@ public class HorseDetails extends Activity {
 
 
                 }
-                Log.d("Result2", "result" + logd);
+                Log.d("Result2", "result2" + logd);
 
 
             } catch (JSONException e) {
