@@ -121,17 +121,19 @@ public class HorseDetails extends Activity {
 
 
                     h1 = new Horse(jsonobj.getInt("id"),
-                            jsonobj.getString("pictureUrl"),
-                            jsonobj.getString("thumbnailUrl"),
-                            jsonobj.getString("registeredName"),
-                            jsonobj.getDouble("ediScore"),
-                            jsonobj.getInt("userId"),
-                            jsonobj.getString("nickName"),
-                            jsonobj.getInt("age"),
+                            jsonobj.getString("picture_url"),
+                            jsonobj.getString("thumbnail_url"),
+                            jsonobj.getString("registered_name"),
+                            jsonobj.getString("birth_date"),
+                            jsonobj.getInt("user_id"),
+                            jsonobj.getString("nick_name"),
                             jsonobj.getString("sex"),
                             jsonobj.getString("breed"),
-                            jsonobj.getInt("riskFactors"),
-                            jsonobj.getString("isActive"));
+                            jsonobj.getDouble("edi_score"),
+                            jsonobj.getString("protocol"),
+                            jsonobj.getInt("priority"),
+                            jsonobj.getString("devices"),
+                            jsonobj.getString("active"));
 
 
                 //    String registeredName = text.getText().toString();
@@ -187,6 +189,7 @@ public class HorseDetails extends Activity {
         Intent intent = new Intent(HorseDetails.this, HorseMetrics.class);
         Log.i("TEST 2", " " + logd);
         intent.putExtra("Metrics", logd);
+        intent.putExtra("registeredName",h1.getRegistered_name());
         startActivity(intent);
     }
 

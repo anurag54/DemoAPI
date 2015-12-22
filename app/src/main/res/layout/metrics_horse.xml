@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="DUKE"
+
             android:id="@+id/text_duke"
             android:textColor="#FFFFFF"
             android:textSize="25sp"
@@ -43,7 +43,8 @@
             android:src="@mipmap/back_arrow"
             android:layout_alignParentStart="true"
             android:paddingLeft="10dp"
-            android:paddingTop="5dp" />
+            android:paddingTop="5dp"
+            android:onClick="onClick"/>
 
         <ImageView
             android:layout_width="35dp"
@@ -69,7 +70,8 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:weightSum="1"
-        android:id="@+id/dash1">
+        android:id="@+id/dash1"
+        android:background="@drawable/back1">
 
 
         <ImageView
@@ -97,7 +99,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center" />
 
@@ -169,7 +171,9 @@
             android:id="@+id/image_questionmark"
             android:layout_toEndOf="@+id/text_edi"
             android:src="@mipmap/questionmark"
-            android:layout_alignTop="@+id/text_edi" />
+            android:layout_alignTop="@+id/text_edi"
+            android:layout_marginLeft="15dp"
+            android:onClick="onClick"/>
 
     </RelativeLayout>
 
@@ -211,7 +215,8 @@
                 android:layout_height="125dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:id="@+id/dash3">
+                android:id="@+id/dash3"
+                android:background="@drawable/back1">
 
                 <ImageView
                     android:layout_width="200dp"
@@ -219,15 +224,27 @@
                     android:id="@+id/image_rpm"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
-                    android:src="@mipmap/rpm" />
+                    android:src="@mipmap/rpm"
+                    android:layout_marginTop="10dp" />
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/image_edi_score"
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:id="@+id/text_ediScore"
+                    android:layout_alignTop="@+id/image_rpm"
                     android:layout_alignParentEnd="true"
-                    android:src="@mipmap/ediscore"
-                    android:layout_marginRight="5dp" />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/back1" />
+
+                <!--<ImageView-->
+                    <!--android:layout_width="50dp"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:id="@+id/image_edi_score"-->
+                    <!--android:layout_alignParentEnd="true"-->
+                    <!--android:src="@mipmap/ediscore"-->
+                    <!--android:layout_marginRight="5dp" />-->
 
             </RelativeLayout>
 
@@ -259,7 +276,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
-                    android:id="@+id/dash5">
+                    android:id="@+id/dash5"
+                    android:background="@drawable/back1">
 
 
                     <ImageView
@@ -300,7 +318,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text=""
                         android:id="@+id/text_heart_score"
                         android:textColor="#222222"
                         android:textStyle="bold"
@@ -329,7 +346,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
                     android:id="@+id/dash6"
-                    android:layout_below="@id/dash5">
+                    android:layout_below="@id/dash5"
+                    android:background="@drawable/back1">
 
 
                     <ImageView
@@ -370,7 +388,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="28"
                         android:id="@+id/text_respiratory_score"
                         android:textColor="#222222"
                         android:textStyle="bold"
@@ -423,7 +440,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/dash8">
+                    android:id="@+id/dash8"
+                    android:background="@drawable/back1">
 
 
                     <ImageView
@@ -464,7 +482,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="8.1"
                         android:id="@+id/text_risefall_score"
                         android:textColor="#222222"
                         android:textStyle="bold"
@@ -493,7 +510,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/dash9"
-                    android:layout_below="@id/dash8">
+                    android:layout_below="@id/dash8"
+                    android:background="@drawable/back1">
 
 
                     <ImageView
@@ -534,7 +552,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="3.4"
                         android:id="@+id/text_lying_down_score"
                         android:textColor="#222222"
                         android:textStyle="bold"
@@ -563,7 +580,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/dash10"
-                    android:layout_below="@id/dash9">
+                    android:layout_below="@id/dash9"
+                    android:background="@drawable/back1">
 
 
                     <ImageView
@@ -604,7 +622,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="5.6"
                         android:id="@+id/text_rolls_score"
                         android:textColor="#222222"
                         android:textStyle="bold"

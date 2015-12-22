@@ -1,16 +1,28 @@
 package com.example.anuragv.NightWatch5.Dashboard;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.anuragv.NightWatch5.Login.UserData;
 import com.example.anuragv.NightWatch5.MyHorses.Horse;
+import com.example.anuragv.NightWatch5.MyHorses.HorseDetails;
 import com.example.anuragv.NightWatch5.R;
 
 import org.json.JSONArray;
@@ -27,22 +39,23 @@ import com.example.anuragv.NightWatch5.utils.VolleyCallback;
 import com.example.anuragv.NightWatch5.utils.WebServices;
 
 
-public class HorseMetrics extends Activity {
+public class HorseMetrics extends Activity{
 
     private String TAG2 = HorseMetrics.class.getSimpleName();
-    private TextView textView;
+    private TextView textView,textView1,textView2,textView3,textView4,textView5,textView6;
+    private ImageView imageView,btn_show;
 
-
-
-//    private String username="kjtexas";
-//    private String password="demoPass1";
 
     private String Token_type="";
     private String Access_token="";
+    private String registeredName = "";
 
     String head = "";
     Metrics m1;
     UserData logd;
+    Point p;
+    Horse h1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +67,30 @@ public class HorseMetrics extends Activity {
         horseMetrics();
 
         textView = (TextView) findViewById(R.id.text_heart_score);
+        textView1 = (TextView) findViewById(R.id.text_respiratory_score);
+        textView2 = (TextView) findViewById(R.id.text_lying_down_score);
+        textView3 = (TextView) findViewById(R.id.text_rolls_score);
+        textView4 = (TextView) findViewById(R.id.text_risefall_score);
+        textView5 = (TextView) findViewById(R.id.text_ediScore);
+        textView6 = (TextView) findViewById(R.id.text_duke);
+
+        imageView = (ImageView) findViewById(R.id.image_back_arrow);
+        btn_show = (ImageView) findViewById(R.id.image_questionmark);
 
         Intent i = new Intent("com.example.anuragv.NightWatch5.Dashboard.Metrics");
+        registeredName = getIntent().getStringExtra("registeredName");
+
+        btn_show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+
+                //Open popup window
+                if (p != null)
+                    showPopup(HorseMetrics.this, p);
+            }
+        });
+
+
 
     }
 
@@ -79,27 +114,34 @@ public class HorseMetrics extends Activity {
                 try {
                     // Parsing json array response
                     // loop through each json object
-                    TextView textView;
+
 
                     for (int i = 0; i < response.length(); i++) {
 
                         JSONObject jsonobj = (JSONObject) response .get(i);
 
-                        m1 = new Metrics(jsonobj.getInt("id"),
-                                jsonobj.getInt("horseId"),
-                                jsonobj.getDouble("ediScore"),
-                                jsonobj.getInt("heartRate"),
-                                jsonobj.getInt("respiratoryRate"),
-                                jsonobj.getDouble("rise"),
-                                jsonobj.getDouble("rolls"),
-                                jsonobj.getDouble("falls"),
-                                jsonobj.getDouble("lyingDown"),
-                                jsonobj.getString("shakes"),
-                                jsonobj.getString("geo"),
-                                jsonobj.getString("collectionDateTime"));
+                   //     m1 = new Metrics(jsonobj.getDouble("edi_score"),);
 
-                        int heartrate = m1.getHeartRate();
-                       // textView.setText(heartrate);
+//                        int heartRate = m1.getHeartRate();
+//                        textView.setText(Integer.toString(heartRate));
+//
+//                        int respiratoryRate = m1.getRespiratoryRate();
+//                        textView1.setText(Integer.toString(respiratoryRate));
+//
+//                        double lyingDown = m1.getLyingDown();
+//                        textView2.setText(Double.toString(lyingDown));
+//
+//                        double rolls = m1.getRolls();
+//                        textView3.setText(Double.toString(rolls));
+//
+//                        double rise = m1.getRise();
+//                        textView4.setText(Double.toString(rise));
+//
+                        double ediScore = m1.getEdiScore();
+                        textView5.setText(Double.toString(ediScore));
+
+//                        String registeredName = h1.getRegisteredName();
+//                        textView6.setText(registeredName);
 
                        }
                         Log.d("Result3","result3"+logd);
@@ -125,6 +167,74 @@ public class HorseMetrics extends Activity {
 
 
  }
+
+    //Layout for Back button
+
+    public void onClick(View v) {
+        super.finish();
+        Intent intent1 = new Intent(HorseMetrics.this,HorseDetails.class);
+        intent1.putExtra("Back btn",logd);
+        startActivity(intent1);
+        Log.d("Back","back");
+    }
+
+
+
+    public void onWindowFocusChanged(boolean hasFocus) {
+
+        int[] location = new int[2];
+        ImageView button = (ImageView) findViewById(R.id.image_questionmark);
+
+        // Get the x, y location and store it in the location[] array
+        // location[0] = x, location[1] = y.
+        button.getLocationOnScreen(location);
+
+        //Initialize the Point with x, and y positions
+        p = new Point();
+        p.x = location[0];
+        p.y = location[1];
+    }
+
+    // The method that displays the popup.
+    private void showPopup(final Activity context, Point p) {
+        int popupWidth = 1400;
+        int popupHeight = 700;
+
+        // Inflate the popup_layout.xml
+        RelativeLayout viewGroup = (RelativeLayout) context.findViewById(R.id.popup);
+        LayoutInflater layoutInflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View layout = layoutInflater.inflate(R.layout.popup_layout, viewGroup);
+
+        // Creating the PopupWindow
+        final PopupWindow popup = new PopupWindow(context);
+        popup.setContentView(layout);
+        popup.setWidth(popupWidth);
+        popup.setHeight(popupHeight);
+        popup.setFocusable(true);
+
+
+        // Some offset to align the popup a bit to the right, and a bit down, relative to button's position.
+        int OFFSET_X = 50;
+        int OFFSET_Y = 90;
+
+        // Clear the default translucent background
+        popup.setBackgroundDrawable(new BitmapDrawable());
+
+        // Displaying the popup at the specified location, + offsets.
+        popup.showAtLocation(layout, Gravity.NO_GRAVITY, p.x + OFFSET_X, p.y + OFFSET_Y);
+
+        // Getting a reference to Close button, and close the popup when clicked.
+        Button close = (Button) layout.findViewById(R.id.close);
+        close.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                popup.dismiss();
+            }
+        });
+    }
+
 
 
    }

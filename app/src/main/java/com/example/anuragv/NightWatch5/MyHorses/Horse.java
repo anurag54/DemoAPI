@@ -3,46 +3,55 @@ package com.example.anuragv.NightWatch5.MyHorses;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.ArrayList;
 
 public class Horse implements Parcelable {
 
     private int id;
-    private String pictureUrl;
-    private String thumbnailUrl;
-    private String registeredName;
-    private double ediScore;
-    private int userId;
-    private String nickName;
-    private int age;
+    private String picture_url;
+    private String thumbnail_url;
+    private String registered_name;
+    private String birth_date;
+    private int user_id;
+    private String nick_name;
     private String sex;
     private String breed;
-    private double riskFactors;
-    private String isActive;
-
-    //  private ArrayList<Horse> horses;
+    private double edi_score;
+    private String protocol;
+    private int priority;
+    private String devices;
+    private String active;
 
 
 public Horse(){
 
 }
-    public Horse(int id,String pictureUrl,String thumbnailUrl,String registeredName,double ediScore,int userId,String nickName,
-                 int age,String sex,String breed,double riskFactors,String isActive){
+    public Horse(int id,String picture_url,String thumbnail_url,String registered_name,String birth_date,int user_id,
+                 String nick_name,String sex,String breed,double edi_score,String protocol,int priority,
+                 String devices,String active){
 
         this.id = id;
-        this.pictureUrl = pictureUrl;
-        this.thumbnailUrl = thumbnailUrl;
-        this.registeredName = registeredName;
-        this.ediScore = ediScore;
-        this.userId = userId;
-        this.nickName = nickName;
-        this.age = age;
+        this.picture_url = picture_url;
+        this.thumbnail_url = thumbnail_url;
+        this.registered_name = registered_name;
+        this.birth_date = birth_date;
+        this.user_id = user_id;
+        this.nick_name = nick_name;
         this.sex = sex;
         this.breed = breed;
-        this.riskFactors = riskFactors;
-        this.isActive = isActive;
-        //   this.horse = horse;
+        this.edi_score = edi_score;
+        this.protocol = protocol;
+        this.priority = priority;
+        this.devices = devices;
+        this.active = active;
 
+    }
+
+    public String getRegistered_name() {
+        return registered_name;
+    }
+
+    public void setRegistered_name(String registered_name) {
+        this.registered_name = registered_name;
     }
 
     public int getId() {
@@ -53,60 +62,44 @@ public Horse(){
         this.id = id;
     }
 
-    public String getPictureUrl() {
-        return pictureUrl;
+    public String getPicture_url() {
+        return picture_url;
     }
 
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
+    public void setPicture_url(String picture_url) {
+        this.picture_url = picture_url;
     }
 
-    public String getThumbnailUrl() {
-        return thumbnailUrl;
+    public String getThumbnail_url() {
+        return thumbnail_url;
     }
 
-    public void setThumbnailUrl(String thumbnailUrl) {
-        this.thumbnailUrl = thumbnailUrl;
+    public void setThumbnail_url(String thumbnail_url) {
+        this.thumbnail_url = thumbnail_url;
     }
 
-    public String getRegisteredName() {
-        return registeredName;
+    public String getBirth_date() {
+        return birth_date;
     }
 
-    public void setRegisteredName(String registeredName) {
-        this.registeredName = registeredName;
+    public void setBirth_date(String birth_date) {
+        this.birth_date = birth_date;
     }
 
-    public double getEdiScore() {
-        return ediScore;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setEdiScore(float ediScore) {
-        this.ediScore = ediScore;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getNick_name() {
+        return nick_name;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
+    public void setNick_name(String nick_name) {
+        this.nick_name = nick_name;
     }
 
     public String getSex() {
@@ -125,22 +118,45 @@ public Horse(){
         this.breed = breed;
     }
 
-    public double getRiskFactors() {
-        return riskFactors;
+    public double getEdi_score() {
+        return edi_score;
     }
 
-    public void setRiskFactors(float riskFactors) {
-        this.riskFactors = riskFactors;
+    public void setEdi_score(double edi_score) {
+        this.edi_score = edi_score;
     }
 
-    public String getIsActive() {
-        return isActive;
+    public String getProtocol() {
+        return protocol;
     }
 
-    public void setIsActive(String isActive) {
-        this.isActive = isActive;
+    public void setProtocol(String protocol) {
+        this.protocol = protocol;
     }
 
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public String getDevices() {
+        return devices;
+    }
+
+    public void setDevices(String devices) {
+        this.devices = devices;
+    }
+
+    public String getActive() {
+        return active;
+    }
+
+    public void setActive(String active) {
+        this.active = active;
+    }
 
 
 
@@ -154,16 +170,19 @@ public Horse(){
     public void writeToParcel(Parcel dest, int flags) {
 
         dest.writeInt(id);
-        dest.writeString(pictureUrl);
-        dest.writeString(thumbnailUrl);
-        dest.writeDouble(ediScore);
-        dest.writeInt(userId);
-        dest.writeString(nickName);
-        dest.writeInt(age);
+        dest.writeString(picture_url);
+        dest.writeString(thumbnail_url);
+        dest.writeString(registered_name);
+        dest.writeString(birth_date);
+        dest.writeInt(user_id);
+        dest.writeString(nick_name);
         dest.writeString(sex);
         dest.writeString(breed);
-        dest.writeDouble(riskFactors);
-        dest.writeString(isActive);
+        dest.writeDouble(edi_score);
+        dest.writeString(protocol);
+        dest.writeInt(priority);
+        dest.writeString(devices);
+        dest.writeString(active);
 
 
     }
@@ -181,16 +200,19 @@ public Horse(){
 
     private Horse(Parcel in) {
         id = in.readInt();
-        pictureUrl = in.readString();
-        thumbnailUrl = in.readString();
-        ediScore = in.readDouble();
-        userId = in.readInt();
-        nickName = in.readString();
-        age = in.readInt();
+        picture_url = in.readString();
+        thumbnail_url = in.readString();
+        registered_name = in.readString();
+        birth_date = in.readString();
+        user_id = in.readInt();
+        nick_name = in.readString();
         sex = in.readString();
         breed = in.readString();
-        riskFactors = in.readDouble();
-        isActive = in.readString();
+        edi_score = in.readDouble();
+        protocol = in.readString();
+        priority =in.readInt();
+        devices = in.readString();
+        active = in.readString();
 
 
     }

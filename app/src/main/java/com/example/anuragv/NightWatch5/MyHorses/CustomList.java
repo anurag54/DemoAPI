@@ -64,7 +64,7 @@ public class CustomList extends ArrayAdapter<String> {
 
         Horse h = h2.get(position);
 
-        txtTitle.setText(h.getRegisteredName());
+     //   txtTitle.setText(h.getRegisteredName());
 
 
 
